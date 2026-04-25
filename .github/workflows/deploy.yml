@@ -22,5 +22,3 @@ jobs:
           service: fashion-dashboard
           source: .
           region: europe-west1
-          env_vars: |
-            MONGO_URI=${{ secrets.MONGO_URI }}
