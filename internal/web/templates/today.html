@@ -1,0 +1,64 @@
+{{template "head" .}}
+
+<section class="section articles-section">
+  <div class="section-head">
+    <h1>TOP ARTICLES</h1>
+  </div>
+  <div class="rail article-rail">
+    {{range .Articles}}
+    <a class="card article-card" style="--img: url('{{.ImageSrc}}')" href="{{.URL}}" target="_blank" rel="noopener noreferrer" aria-label="Read {{.Title}}">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <span class="source">{{.Source}}</span>
+        <h2>{{.Title}}</h2>
+        <p>{{.Summary}}</p>
+        <div class="meta"><span>{{.ReadTime}}</span>{{range .Tags}}<span class="tag">{{.}}</span>{{end}}</div>
+      </div>
+    </a>
+    {{end}}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h1>DAILY INSPIRATION</h1>
+    <div class="section-actions"><span>4 LOOKS</span><a href="/looks">VIEW ALL LOOKS</a></div>
+  </div>
+  <div class="rail">
+    {{range .Looks}}
+    <article class="card look-card">
+      {{if .ImageSrc}}<img src="{{.ImageSrc}}" alt="">{{end}}
+      <div class="card-pad">
+        <h2>{{.Title}}</h2>
+        <div class="tags">{{range .Tags}}<span class="tag">{{.}}</span>{{end}}</div>
+      </div>
+    </article>
+    {{end}}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h1>DAILY ITEM FOCUS</h1>
+    <div class="section-actions"><span>{{.Category}}</span><span>6 ITEMS</span><a href="/items">VIEW ALL {{.Category}}</a></div>
+  </div>
+  <div class="rail">
+    {{range .Items}}
+    <article class="card item-card">
+      {{if .ImageSrc}}<img src="{{.ImageSrc}}" alt="">{{end}}
+      <div class="card-pad">
+        <span class="source">{{.Brand}}</span>
+        <h2>{{.Name}}</h2>
+        <p>{{.Price}}</p>
+      </div>
+    </article>
+    {{end}}
+  </div>
+</section>
+
+<footer class="footer">
+  <p>{{.Quote}}</p>
+  <p>{{.Weather}}</p>
+</footer>
+
+{{template "foot" .}}

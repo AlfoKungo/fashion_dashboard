@@ -1,0 +1,17 @@
+{{template "head" .}}
+<section class="section">
+  <div class="section-head"><h1>LOOKS</h1></div>
+  <div class="grid">
+    {{range .Looks}}
+    <article class="card look-card">
+      {{if .ImageSrc}}<img src="{{.ImageSrc}}" alt="">{{end}}
+      <div class="card-pad">
+        <span class="source">{{.Source}}</span>
+        <h2>{{.Title}}</h2>
+        <div class="tags">{{range .Tags}}<span class="tag">{{.}}</span>{{end}}</div>
+      </div>
+    </article>
+    {{end}}
+  </div>
+</section>
+{{template "foot" .}}

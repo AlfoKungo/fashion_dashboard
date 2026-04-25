@@ -1,0 +1,18 @@
+{{template "head" .}}
+<section class="section">
+  <div class="section-head"><h1>ARTICLES</h1></div>
+  <div class="grid articles-grid">
+    {{range .Articles}}
+    <a class="card article-card" style="--img: url('{{.ImageSrc}}')" href="{{.URL}}" target="_blank" rel="noopener noreferrer" aria-label="Read {{.Title}}">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <span class="source">{{.Source}}</span>
+        <h2>{{.Title}}</h2>
+        <p>{{.Summary}}</p>
+        <div class="meta"><span>{{.ReadTime}}</span>{{range .Tags}}<span class="tag">{{.}}</span>{{end}}</div>
+      </div>
+    </a>
+    {{end}}
+  </div>
+</section>
+{{template "foot" .}}

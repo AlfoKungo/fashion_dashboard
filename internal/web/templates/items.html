@@ -1,0 +1,18 @@
+{{template "head" .}}
+<section class="section">
+  <div class="section-head"><h1>ITEMS</h1></div>
+  <div class="grid">
+    {{range .Items}}
+    <article class="card item-card">
+      {{if .ImageSrc}}<img src="{{.ImageSrc}}" alt="">{{end}}
+      <div class="card-pad">
+        <span class="source">{{.Brand}}</span>
+        <h2>{{.Name}}</h2>
+        <p>{{.Price}}</p>
+        <div class="tags">{{range .Tags}}<span class="tag">{{.}}</span>{{end}}</div>
+      </div>
+    </article>
+    {{end}}
+  </div>
+</section>
+{{template "foot" .}}

@@ -1,0 +1,5 @@
+
+let's make the daily inspiration work properly (currently it's just place holders). find sources for inspo looks for the summer for men and make
+  the workflow fetch about 20 and host in the db and when you query it from the main page, you get a random 4. If links are relevant there, also
+  make it clickable and make it move you to the link. ask me if there's anything unclear
+

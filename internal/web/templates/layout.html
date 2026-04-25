@@ -1,0 +1,28 @@
+{{define "head"}}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Men's Fashion Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="/">MEN'S FASHION DASHBOARD</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="{{if eq .ActivePage "today"}}active{{end}}" href="/">TODAY</a>
+      <a class="{{if eq .ActivePage "looks"}}active{{end}}" href="/looks">LOOKS</a>
+      <a class="{{if eq .ActivePage "items"}}active{{end}}" href="/items">ITEMS</a>
+      <a class="{{if eq .ActivePage "articles"}}active{{end}}" href="/articles">ARTICLES</a>
+    </nav>
+    <div class="date">{{.DateLabel}}</div>
+  </header>
+  <main class="page">
+{{end}}
+
+{{define "foot"}}
+  </main>
+</body>
+</html>
+{{end}}
