@@ -1,0 +1,26 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: fashion-dashboard
+          source: .
+          region: us-central1
+          env_vars: |
+            MONGO_URI=${{ secrets.MONGO_URI }}
