@@ -24,7 +24,10 @@ func main() {
 	client, err := db.Connect(ctx, cfg.MongoURI)
 	if err != nil {
 		log.Printf("mongodb unavailable, using in-memory store: %v", err)
+	} else {
+		log.Printf("mongodb connection established")
 	}
+
 	defer func() {
 		if err := db.Disconnect(context.Background(), client); err != nil {
 			log.Printf("mongodb disconnect: %v", err)
